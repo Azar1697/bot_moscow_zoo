@@ -150,7 +150,10 @@ async def restart(cb: types.CallbackQuery, state: FSMContext):
 
 
 async def main():
-    print("Bot running (aiogram 3)")
+    await bot.delete_webhook(drop_pending_updates=True)
+
+    print("Bot running (aiogram 3, polling)")
+    await dp.start_polling(bot)
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
